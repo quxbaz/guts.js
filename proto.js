@@ -12,7 +12,7 @@
 */
 
 
-define(['eventhandler'], function(EventHandler) {
+define(['guts/eventhandler'], function(EventHandler) {
 
     function isfunc(x) {return typeof x === 'function'};
 
@@ -90,7 +90,7 @@ define(['eventhandler'], function(EventHandler) {
 
     Proto.prototype._boot = function(){};
 
-    var Model = Proto.extend({
+    var Responder = Proto.extend({
 
         _boot: function() {
             this.events = new EventHandler();
@@ -112,5 +112,8 @@ define(['eventhandler'], function(EventHandler) {
 
     });
 
-    return {Proto: Proto, Model: Model};
+    var Model = Responder.extend();
+    var View = Responder.extend();
+
+    return {Proto: Proto, Model: Model, View: View};
 });
