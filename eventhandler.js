@@ -8,6 +8,7 @@
    Add a method for removing events.
 */
 
+
 define(function() {
 
     var EventHandler = function(handlers) {
