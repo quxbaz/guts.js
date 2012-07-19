@@ -1,5 +1,5 @@
 /*
-    util.js
+  util.js
 */
 
 define({
@@ -25,7 +25,7 @@ define({
                 console.log('  ' + k + ': ' + str(obj[k]));
         }
         console.log('\n');
-    }
+    },
 
     even: function(n) {
         return n % 2 == 0;

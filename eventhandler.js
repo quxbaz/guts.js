@@ -1,11 +1,11 @@
 /*
-   eventhandler.js
+  eventhandler.js
 
-   Simple event handler. Supports attaching events to callbacks and triggering
-   events.
+  Simple event handler. Supports attaching events to callbacks and triggering
+  events.
 
-   TODO:
-   Add a method for removing events.
+  TODO:
+  Add a method for removing events.
 */
 
 

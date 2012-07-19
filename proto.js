@@ -1,14 +1,14 @@
 /*
-    proto.js
+  proto.js
 
-    Allows classical-style inheritance.
+  Allows classical-style inheritance.
 
-    Inspired by John Resig's "Simple Javascript Inheritance" function.
-    - Source: http://ejohn.org/blog/simple-javascript-inheritance/
+  Inspired by John Resig's "Simple Javascript Inheritance" function.
+  - Source: http://ejohn.org/blog/simple-javascript-inheritance/
 
-    Usage:
-    _boot is a constructor function called before init. All parents _boot
-    functions are called as well.
+  Usage:
+  _boot is a constructor function called before init. All parents _boot
+  functions are called as well.
 */
 
 
@@ -17,8 +17,8 @@ define(['eventhandler'], function(EventHandler) {
     function isfunc(x) {return typeof x === 'function'};
 
     /*
-        If a function's text can be inspected, check if it calls ._super()
-        internally.
+      If a function's text can be inspected, check if it calls ._super()
+      internally.
     */
     var fntest = /xyz/.test(function(){xyz}) ? /\b_super\b/ : /.*/;
 
@@ -43,8 +43,8 @@ define(['eventhandler'], function(EventHandler) {
             var prop = props[k];
             if (isfunc(prop) && isfunc(base[k]) && fntest.test(prop) || k == '_boot') {
                 /*
-                    If this property is a method and overwrites a base property,
-                    give it the ability to call this._super() within that method.
+                  If this property is a method and overwrites a base property,
+                  give it the ability to call this._super() within that method.
                 */
                 prop = (function(name, f, base_prop) {
                     return function() {
@@ -73,8 +73,8 @@ define(['eventhandler'], function(EventHandler) {
         };
 
         /*
-            Allows an object to be instantiated like this:
-            > var obj = Proto.new();
+          Allows an object to be instantiated like this:
+          > var obj = Proto.new();
         */
         this.new = function() {
             return new Ret(arguments); 
@@ -97,8 +97,10 @@ define(['eventhandler'], function(EventHandler) {
         },
 
         on: function(events, handler, context) {
-            // Wrapper function for EventHandler.on() with the context binded to
-            // this model by default.
+            /*
+              Wrapper function for EventHandler.on() with the context binded to
+              this model by default.
+            */
             var context = context || this;
             this.events.on(events, handler, context);
         },

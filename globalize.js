@@ -5,7 +5,7 @@
 */
 
 
-define(['underscore', 'util/util'], function(_, util) {
+define(['underscore', 'guts/util'], function(_, util) {
 
     var that = this;
     var globals = _.extend({}, util);
