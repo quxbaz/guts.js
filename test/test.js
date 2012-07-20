@@ -1,4 +1,4 @@
-define(['util', 'proto'], function(util, proto) {
+define(['guts/util', 'guts/proto'], function(util, proto) {
 
     var log     = util.log,
         inspect = util.inspect,
@@ -37,7 +37,8 @@ define(['util', 'proto'], function(util, proto) {
             }
         });
 
-        c = Cat.new('cat-a', 'cat-b');
+        c = new Cat('cat-a', 'cat-b');
+        // c = Cat.new('cat-a', 'cat-b');
         // log(c);
         inspect(c, 'CAT');
         // c.talk();
@@ -60,5 +61,5 @@ define(['util', 'proto'], function(util, proto) {
         m.emit.apply(m, ['create', 1, 2, 3]);
     };
 
-    return {test, test_model};
+    return {test: test, test_model: test_model};
 });
