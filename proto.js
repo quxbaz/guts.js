@@ -66,7 +66,7 @@ define(['guts/eventhandler'], function(EventHandler) {
 
         var called_by_method = false;
 
-        // All construction is done in the _init method.
+        // All construction is done in the _init and _boot methods.
         var Ret = function(args) {
             if (called_by_method)
                 var arguments = args;

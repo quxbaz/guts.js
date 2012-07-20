@@ -2,6 +2,7 @@
   util.js
 */
 
+
 define({
 
     /*
@@ -53,6 +54,7 @@ define({
       String related functions
      */
 
+
     fmt: function(s) {
         var args = Array.prototype.slice.call(arguments, 1);
         return s.replace(/{(\d+)}/g, function(match, number) {
@@ -67,6 +69,5 @@ define({
     is_upper: function(s) {
         return s == s.toUpperCase();
     }
-
 
 });
