@@ -9,7 +9,7 @@ define(['guts/util', 'guts/proto'], function(util, proto) {
 
         var Dog = Proto.extend({
             _boot: function() {
-                console.log('DOG: ', arguments);
+                // console.log('DOG: ', arguments);
             },
             _init: function(a, b) {
                 this.a = a;
@@ -20,8 +20,10 @@ define(['guts/util', 'guts/proto'], function(util, proto) {
             }
         });
 
-        var d =  Dog.new(1, 2);
-        inspect(d, 'DOG');
+        var d =  Dog.new('arg-1', 'arg-2');
+        var d =  new Dog('arg-1', 'arg-2');
+        // inspect(d, 'DOG');
+        // console.log(d.args);
 
         Cat = Dog.extend({
             _boot: function() {
@@ -37,19 +39,18 @@ define(['guts/util', 'guts/proto'], function(util, proto) {
             }
         });
 
-        c = new Cat('cat-a', 'cat-b');
         // c = Cat.new('cat-a', 'cat-b');
         // log(c);
-        inspect(c, 'CAT');
+        // inspect(c, 'CAT');
         // c.talk();
         // c._boot();
 
-        Cat.extend({
-            _boot: function() {
-                console.log('MOUSE: ', arguments);
-                // this._super('super-1');
-            }
-        }).new('super-1', 'super-2', 'super-3');
+        // Cat.extend({
+        //     _boot: function() {
+        //         console.log('MOUSE: ', arguments);
+        //         // this._super('super-1');
+        //     }
+        // }).new('super-1', 'super-2', 'super-3');
 
     };
 

@@ -64,12 +64,32 @@ define(['guts/eventhandler'], function(EventHandler) {
             proto[k] = prop;
         }
 
+        /*
+          WARNING: called_by_method is not sound. It becomes enclosed
+          and the value does not 'reset' on each new invocation.
+        */
+        // var called_by_method = false;
+
         // All construction is done in the _init method.
         var Ret = function(args) {
+            if (!called_by_method) {
+                /*
+                  If the object was instantiated like:
+                  > new Model()
+                  as opposed to:
+                  > Model.new()
+                */
+                var args = Array.prototype.slice.call(arguments);
+                // var args = arguments[0];
+            }
+            // console.log(args);
+            console.log(arguments);
+            console.log(args);
+            // this.args = args;
             if (this._boot)
                 this._boot.apply(this, args);
             if (this._init)
-                this._init.apply(this, args)
+                this._init.apply(this, args);
         };
 
         /*
@@ -77,7 +97,8 @@ define(['guts/eventhandler'], function(EventHandler) {
           > var obj = Proto.new();
         */
         this.new = function() {
-            return new Ret(arguments); 
+            called_by_method = true;
+            return new Ret(arguments);
         };
 
         Ret.prototype = proto;
