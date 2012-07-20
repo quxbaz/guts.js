@@ -21,11 +21,11 @@ define(['guts/util', 'guts/proto'], function(util, proto) {
         });
 
         var d =  Dog.new('arg-1', 'arg-2');
-        var d =  new Dog('arg-1', 'arg-2');
-        // inspect(d, 'DOG');
-        // console.log(d.args);
+        inspect(d, 'DOG-a');
+        var d =  new Dog('arg-a', 'arg-b');
+        inspect(d, 'DOG-b');
 
-        Cat = Dog.extend({
+        var Cat = Dog.extend({
             _boot: function() {
                 console.log('CAT: ', arguments);
             },
@@ -39,7 +39,8 @@ define(['guts/util', 'guts/proto'], function(util, proto) {
             }
         });
 
-        // c = Cat.new('cat-a', 'cat-b');
+        // var c = Cat.new('cat-a', 'cat-b');
+        // var cc = new Cat('cat-a', 'cat-b');
         // log(c);
         // inspect(c, 'CAT');
         // c.talk();
