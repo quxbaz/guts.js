@@ -17,13 +17,13 @@ define(['guts/util', 'guts/proto'], function(util, proto) {
             },
             talk: function() {
                 console.log('woof');
-            }
+            },
         });
 
         var d =  Dog.new('arg-1', 'arg-2');
-        inspect(d, 'DOG-a');
+        // inspect(d, 'DOG-a');
         var d =  new Dog('arg-a', 'arg-b');
-        inspect(d, 'DOG-b');
+        // inspect(d, 'DOG-b');
 
         var Cat = Dog.extend({
             _boot: function() {

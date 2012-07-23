@@ -120,7 +120,20 @@ define(['guts/eventhandler'], function(EventHandler) {
     });
 
     var Model = Responder.extend();
-    var View = Responder.extend();
+
+    var View = Responder.extend({
+
+        template: undefined,
+
+        _boot: function(opts) {
+            var opts = opts || {};
+            this.model = opts.model;
+            // this.el
+        },
+
+        render: function(){}
+
+    });
 
     return {Proto: Proto, Model: Model, View: View};
 });
