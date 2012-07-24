@@ -128,7 +128,6 @@ define(['guts/eventhandler'], function(EventHandler) {
         _boot: function(opts) {
             var opts = opts || {};
             this.model = opts.model;
-            // this.el
         },
 
         render: function(){}
