@@ -5,6 +5,13 @@
 
 define(['underscore'], function(_) {
 
+    function fmt(s) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        return s.replace(/{(\d+)}/g, function(match, number) {
+            return typeof args[number] != 'undefined' ? args[number] : match;
+        });
+    }
+
     return {
 
 
@@ -15,6 +22,14 @@ define(['underscore'], function(_) {
 
         log: function() {
             console.log.apply(console, arguments);
+        },
+
+        dir: function(obj) {
+            for (var k in obj) {
+                if (obj.__proto__ && !obj.hasOwnProperty(k))
+                    continue;
+                console.log(fmt('{0}: {1}', k, obj[k]));
+            }
         },
 
         inspect: function(obj, name) {
@@ -75,12 +90,7 @@ define(['underscore'], function(_) {
          */
 
 
-        fmt: function(s) {
-            var args = Array.prototype.slice.call(arguments, 1);
-            return s.replace(/{(\d+)}/g, function(match, number) {
-                return typeof args[number] != 'undefined' ? args[number] : match;
-            });
-        },
+        fmt: fmt,
 
         is_lower: function(s) {
             return s == s.toLowerCase();
